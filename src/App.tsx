@@ -7,11 +7,7 @@ import Todo from "./model/todo";
 
 const App = () => {
 
-  const TODO_LIST = [
-    new Todo('1', 'create react app'),
-    new Todo('2', 'create front end'),
-    new Todo('3', 'start spring backend')
-  ]
+  const TODO_LIST: Todo[] = []
 
   const [todoList, SetTodoList] = useState<Todo[]>(TODO_LIST)
 

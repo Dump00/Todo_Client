@@ -20,7 +20,7 @@ const AddTodo: React.FC<{onSave: (task: string) => void}> = ({onSave}) => {
             <input value={userInput} onChange={handleUserInput} type="text" id="inputtext" className="form-control todo-input" />
             </div>
             <div className="col-btn col-2">
-             <button onClick={handleAdd} className="btn btn-info btn-add"><span className="font-weight-bold">Add todo</span></button>
+             <button type='button' onClick={handleAdd} className="btn btn-info btn-add"><span className="font-weight-bold">Add todo</span></button>
             </div>
         </div>
     )
