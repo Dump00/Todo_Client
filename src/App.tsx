@@ -1,7 +1,9 @@
+import NavBar from "./components/NavBar";
+
 const App = () => {
   return (
     <div className="container">
-      <h1 className="text-primary">Hello</h1>
+      <NavBar />
     </div>
   );
 }

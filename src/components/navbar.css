@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap');
+
+.navbar {
+    margin-top: 60px;
+    box-shadow: 1.5px 2px 3px #000;
+    position:absolute;
+    text-align:center;
+}
+
+
+.navbar-header {
+    font-family: 'Rubik Moonrocks', cursive;
+    margin:auto;
+    line-height:51px;
+    vertical-align:middle;
+}
