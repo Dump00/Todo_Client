@@ -15,10 +15,17 @@ const App = () => {
 
   const [todoList, SetTodoList] = useState<Todo[]>(TODO_LIST)
 
+  const saveUserInput = (task: string) => {
+    const newTodo = new Todo(Math.random().toString(), task)
+    SetTodoList(prevData => {
+      return [...prevData, newTodo]
+    })
+  }
+
   return (
     <div className="container app">
       <NavBar />
-      <AddTodo />
+      <AddTodo onSave={saveUserInput}/>
       <TodoListGroup list={todoList}/>
     </div>
   );
