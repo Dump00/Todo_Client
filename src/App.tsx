@@ -1,6 +1,8 @@
 import { useState } from "react";
 import AddTodo from "./components/AddTodo";
 import NavBar from "./components/NavBar";
+import TodoListGroup from "./components/TotoListGroup";
+import Todo from "./model/todo"; 
 
 const App = () => {
 
@@ -16,6 +18,7 @@ const App = () => {
     <div className="container">
       <NavBar />
       <AddTodo />
+      <TodoListGroup />
     </div>
   );
 }
