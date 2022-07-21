@@ -1,14 +1,11 @@
 import './todolistgroup.css'
+import Todo from '../../model/todo'
 
-const TodoListGroup = () => {
+const TodoListGroup: React.FC<{list: Todo[]}> = ({list}) => {
     return (
         <div className="todo-group col-4 mt-5">
             <ul className="list-group">
-            <li className="list-group-item">Cras justo odio</li>
-            <li className="list-group-item">Dapibus ac facilisis in</li>
-            <li className="list-group-item">Morbi leo risus</li>
-            <li className="list-group-item">Porta ac consectetur ac</li>
-            <li className="list-group-item">Vestibulum at eros</li>
+                {list.map(todo => <li key={todo.id} className="list-group-item">{todo.todo}</li>)}
             </ul>
         </div>
     )

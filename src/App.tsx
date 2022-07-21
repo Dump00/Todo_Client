@@ -13,13 +13,13 @@ const App = () => {
     new Todo('3', 'start spring backend')
   ]
 
-  const [todoList, SetTodoList] = useState(TODO_LIST)
+  const [todoList, SetTodoList] = useState<Todo[]>(TODO_LIST)
 
   return (
     <div className="container app">
       <NavBar />
       <AddTodo />
-      <TodoListGroup />
+      <TodoListGroup list={todoList}/>
     </div>
   );
 }
