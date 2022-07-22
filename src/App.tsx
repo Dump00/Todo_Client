@@ -24,11 +24,16 @@ const App = () => {
     todoService.postTodo(task)
   }
 
+  const deleteItem = (id: string) => {
+    console.log(id);
+    todoService.deleteTodo(parseInt(id))
+  }
+
   return (
     <div className="container app">
       <NavBar />
       <AddTodo onSave={saveUserInput}/>
-      <TodoListGroup list={todoList}/>
+      <TodoListGroup onDelete={deleteItem} list={todoList} />
     </div>
   );
 }

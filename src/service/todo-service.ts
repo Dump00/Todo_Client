@@ -10,6 +10,10 @@ class TodoService {
     postTodo: any = (todoItem: string) => {
         axios.post(BASE_URI + '/post', {"todoItem": todoItem})
     }
+
+    deleteTodo: any = (id: number) => {
+        axios.delete(BASE_URI + '/delete/' + id)
+    }
 }
 
 export default new TodoService()
