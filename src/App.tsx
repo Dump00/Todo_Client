@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AddTodo from "./components/add-todo/AddTodo";
 import NavBar from "./components/navbar/NavBar";
 import TodoListGroup from "./components/todo-list-group/TotoListGroup";
 import Todo from "./model/todo"; 
+import todoService from "./service/todo-service";
 
 
 const App = () => {
@@ -10,6 +11,14 @@ const App = () => {
   const TODO_LIST: Todo[] = []
 
   const [todoList, SetTodoList] = useState<Todo[]>(TODO_LIST)
+
+  useEffect(() => {
+    const response = todoService.getTodos().then((res : any) => {      
+      SetTodoList(res.data.map((data: any) => {
+        return data
+      }))
+    })
+  }, [])
 
   const saveUserInput = (task: string) => {
     const newTodo = new Todo(Math.random().toString(), task)
