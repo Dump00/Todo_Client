@@ -13,18 +13,15 @@ const App = () => {
   const [todoList, SetTodoList] = useState<Todo[]>(TODO_LIST)
 
   useEffect(() => {
-    const response = todoService.getTodos().then((res : any) => {      
+    todoService.getTodos().then((res : any) => {      
       SetTodoList(res.data.map((data: any) => {
         return data
       }))
     })
-  }, [])
+  }, [todoList])
 
   const saveUserInput = (task: string) => {
-    const newTodo = new Todo(Math.random().toString(), task)
-    SetTodoList(prevData => {
-      return [...prevData, newTodo]
-    })
+    todoService.postTodo(task)
   }
 
   return (
