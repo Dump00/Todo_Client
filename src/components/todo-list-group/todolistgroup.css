@@ -12,3 +12,8 @@
     position: absolute;
     right: 5px;
 }
+
+.btn-warning {
+    position: absolute;
+    right: 100px;
+}

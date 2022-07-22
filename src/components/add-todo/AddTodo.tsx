@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Todo from '../../model/todo'
 import './addtodo.css'
 
 const AddTodo: React.FC<{onSave: (task: string) => void}> = ({onSave}) => {
