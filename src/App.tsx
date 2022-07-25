@@ -11,6 +11,8 @@ const App = () => {
   const TODO_LIST: Todo[] = []
 
   const [todoList, SetTodoList] = useState<Todo[]>(TODO_LIST)
+  const [todoItem, setTodoItem] = useState<string>('')
+  const [todoId, setTodoId] = useState<number>(0)
 
 
   useEffect(() => {
@@ -31,14 +33,25 @@ const App = () => {
 
   const updateItem = (id: string) => {
     const tod = todoList.filter(item => item.id === id)
-    console.log(tod[0].todo);
+    setTodoItem(tod[0].todo)
+    setTodoId(parseInt(tod[0].id))
+  }
+
+  const updateFunc = (input: string) => {
+    const todo = {
+      id: todoId,
+      todo: input
+    }
+    todoService.updateItem(todo)
+    setTodoItem('')
+    setTodoId(0)
   }
 
 
   return (
     <div className="container app">
       <NavBar />
-      <AddTodo onSave={saveUserInput} />
+      <AddTodo onSave={saveUserInput} updateText={todoItem} onUpdate={updateFunc}/>
       <TodoListGroup onDelete={deleteItem} onUpdate={updateItem} list={todoList} />
     </div>
   );

@@ -22,7 +22,7 @@ class TodoService {
     }
 
     updateItem: any = (todo: {id: number, todo: String}) => {
-        axios.post(BASE_URI + '/update', todo)
+        axios.put(BASE_URI + '/update', todo)
     } 
 }
 

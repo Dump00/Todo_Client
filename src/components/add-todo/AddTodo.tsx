@@ -1,8 +1,13 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Todo from '../../model/todo'
 import './addtodo.css'
 
-const AddTodo: React.FC<{onSave: (task: string) => void}> = ({onSave}) => {
+const AddTodo: React.FC<{onSave: (task: string) => void, updateText: string, onUpdate: (input: string) => void}> = ({onSave, updateText, onUpdate}) => {
+
+    useEffect(() => {
+        updateText && setUserInput(updateText)
+    }, [updateText])
+    
 
     const [userInput, setUserInput] = useState('')
 
@@ -11,8 +16,14 @@ const AddTodo: React.FC<{onSave: (task: string) => void}> = ({onSave}) => {
     }
 
     const handleAdd = () => {
-        onSave(userInput)
-        setUserInput('') 
+        if(updateText){
+            onUpdate(userInput)
+            setUserInput('')
+        } else {
+            onSave(userInput)
+            setUserInput('') 
+        }
+        
     }
 
     return(
